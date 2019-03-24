@@ -1,0 +1,33 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p [%thread] (%file:%line\)- %m%n</pattern>
+            <!-- 控制台也要使用UTF-8，不要使用GBK，否则会中文乱码 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <appender name="fileInfoLog"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/info.%d.%i.log</fileNamePattern>
+            <!-- 每产生一个日志文件，该日志文件的保存期限为30天 -->
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- maxFileSize:这是活动文件的大小，默认值是10MB,本篇设置为1KB，只是为了演示 -->
+                <maxFileSize>200MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <!-- pattern节点，用来设置日志的输入格式 -->
+            <pattern>
+                %d %p [%thread] (%file:%line\)- %m%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!-- 控制台输出日志级别 -->
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="fileInfoLog" />
+    </root>
+</configuration>

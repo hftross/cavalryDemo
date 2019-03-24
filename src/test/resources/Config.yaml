@@ -1,0 +1,19 @@
+env: test
+propertiesMap:
+  test:
+    endPoint:
+      #key值与API类名要相同，区分大小写
+      Passport: 'https://passport.tairanmall.com/proxy'
+    properties:
+      FengdaiUser:
+        id:
+          id1: 2
+          id2: 3
+          id3: 4
+          id4:
+            name: name1
+  uat:
+    endPoint:
+      FengdaiUser: 'http://10.200.141.56:81'
+      FengdaiSystem: 'http://10.200.141.56:81'
+      Passport: 'https://passport.tairanmall.com/proxy'

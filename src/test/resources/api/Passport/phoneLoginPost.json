@@ -1,0 +1,5 @@
+{
+  "url" : "/consumer/login/phone",
+  "method" : "POST",
+  "contentType":"application/json"
+}
